@@ -19,3 +19,8 @@ app = FastAPI()
 def getOutfits(session: Session = Depends(get_session)):
     outfits = session.query(models.Outfits).all()
     return outfits
+
+@app.get("/outfits/{id}")
+def getOutfit(id:int,session: Session = Depends(get_session)):
+    outfits = session.query(models.Outfits).get(id)
+    return outfits
