@@ -32,3 +32,11 @@ def addOutfit(outfit:schemas.Outfits, session: Session = Depends(get_session)):
     session.commit()
     session.refresh(outfit)
     return outfit
+
+@app.put('/outfits/{id}')
+def updateOutfit(id:int, outfit:schemas.Outfits, session: Session = Depends(get_session)):
+    outfitObject = session.query(models.Outfits).get(id)
+    outfitObject.name = outfit.name
+    outfitObject.url = outfit.url
+    session.commit()
+    return outfitObject
