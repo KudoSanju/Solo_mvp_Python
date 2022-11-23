@@ -24,3 +24,11 @@ def getOutfits(session: Session = Depends(get_session)):
 def getOutfit(id:int,session: Session = Depends(get_session)):
     outfits = session.query(models.Outfits).get(id)
     return outfits
+
+@app.post("/outfits")
+def addOutfit(outfit:schemas.Outfits, session: Session = Depends(get_session)): 
+    outfit = models.Outfits(name = outfit.name, url = outfit.url)
+    session.add(outfit)
+    session.commit()
+    session.refresh(outfit)
+    return outfit
