@@ -9,4 +9,4 @@ engine = create_engine("sqlite:///todo.db")
 Base = declarative_base()
 
 #Create session local class for session maker
-SessionLocal = sessionmaker(bind=engine, expire_on_commit=False)
+SessionLocal = sessionmaker(bind=engine, expire_on_commit=False) 

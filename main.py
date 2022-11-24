@@ -41,6 +41,7 @@ def updateOutfit(id:int, outfit:schemas.Outfits, session: Session = Depends(get_
     session.commit()
     return outfitObject
 
+
 @app.delete('/outfits/{id}')
 def deleteOutfit(id:int, session: Session = Depends(get_session)):
     itemOutfit = session.query(models.Outfits).get(id)

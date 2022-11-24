@@ -1,0 +1,12 @@
+.button {
+  cursor: pointer;
+}
+
+input {
+  position: absolute;
+  /* visibility: hidden; */
+}
+
+button {
+  height: 2rem;
+}
